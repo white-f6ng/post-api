@@ -1,0 +1,60 @@
+<div class="container">
+  <label>Product ID:</label><input [(ngModel)]="mst_product_id" >
+  <label>Branch ID:</label><input [(ngModel)]="branch_id" >
+  <input type="checkbox" [(ngModel)]="repeatCombo" id="repeatCheckbox"><label for="repeatCheckbox" id="labelbox">Repeat Combo</label>
+<button (click)="sendRequest()">Submit</button>
+
+<div *ngIf="buttonClicked">
+  <ul>
+    <li *ngFor="let detail of responseData.data.details">
+      <h3>{{ detail.mst_cat_name }}</h3>
+      <ul>
+        <li *ngFor="let product of detail.product_details">
+          
+          <p>{{ product.mst_product_name }}</p>
+          <input type="checkbox" [(ngModel)]="product.isChecked">
+          
+          <label for="checkbox">Required</label>
+          <!-- <p>Product Code: {{ product.mst_product_code }}</p> -->
+        </li>
+      </ul>
+    </li> 
+  </ul>
+
+  <button (click)="showCheckedItems()">Show Selected Product</button>
+<div *ngIf="showCheckedItemsSection">
+  <ul>
+    <li *ngFor="let checkedItem of checkedItems">
+      <h4>{{ checkedItem.mst_cat_name }}</h4>
+      <ul>
+        <li *ngFor="let item of checkedItem.items">
+          {{ item.mst_product_name }}
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+</div>  
+</div>
+
+  
+   <!-- <div *ngIf="responseData">
+    <p>Status: {{ responseData.status }}</p>
+    <p>Show Status: {{ responseData.show_status }}</p>
+    <p>Message: {{ responseData.message }}</p>
+    <p>Server Time: {{ responseData.server_time }}</p>
+    <ul>
+      <li *ngFor="let detail of responseData.data.details">
+        <p>Category Name: {{ detail.mst_cat_name }}</p>
+        <p>Is Required: {{ detail.is_required }}</p>
+        <ul>
+          <li *ngFor="let product of detail.product_details">
+            <input type="checkbox" >Product Name: {{ product.mst_product_name }}
+            <p>Product Code: {{ product.mst_product_code }}</p>
+            
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div> -->
+    

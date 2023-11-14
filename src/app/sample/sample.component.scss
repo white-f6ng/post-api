@@ -1,0 +1,26 @@
+div{
+    font-family: system-ui;
+}
+li {
+    list-style-type: disc;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+  }
+  #repeatCheckbox,#labelbox{
+    position: relative;
+
+  }
+  #repeatCheckbox{
+    top: 2vh;
+    left: -3vw;
+  }
+  #labelbox{
+    left: 2vw;
+    bottom: 1vh;
+  }
+  
