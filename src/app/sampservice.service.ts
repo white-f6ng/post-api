@@ -17,7 +17,7 @@ export class SampserviceService {
 
 
 showproducts(requestPayload:any){
-  console.log(this.apiUrl)
+  // console.log(this.apiUrl)
   const headers = new HttpHeaders({ 'Content-Type': 'application/json', });
   
   return this.http.post(this.apiUrl, requestPayload,{headers})

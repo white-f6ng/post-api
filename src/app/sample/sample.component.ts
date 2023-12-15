@@ -55,8 +55,8 @@ export class SampleComponent {
     
       
     if (
-      this.requestPayload.mst_product_id === 41199 &&
-      this.requestPayload.branch_id === 4 &&
+      this.requestPayload.mst_product_id &&
+      this.requestPayload.branch_id &&
       this.repeatCombo
     ){      this.sampservice.showproducts(this.requestPayload).subscribe(
         (response: any) => {
