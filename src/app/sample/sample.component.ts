@@ -86,7 +86,7 @@ export class SampleComponent {
       }
     }
     
-    
+        
     this.showCheckedItemsSection = true;
   
   }
