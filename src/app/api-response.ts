@@ -1,5 +1,5 @@
 // Define an interface to represent the structure of the API response
-interface ApiResponse {
+export interface ApiResponse {
     status: string;
     show_status: string;
     message: string;
@@ -12,7 +12,8 @@ interface ApiResponse {
         mst_cat_code: string;
         mst_cat_name: string;
         side_cat_count: number;
-        // Define other properties within the details object as needed
+      //  details:any[];
+      //  product_details: Product[]; 
       }>;
     };
   }
@@ -24,4 +25,11 @@ interface ApiResponse {
     mst_product_name: string;
     // Define other properties within the product details as needed
   }
+  export interface Product {
+    mst_product_name: string;
+    mst_product_code: string;
+    isChecked: boolean;
+   
+  }
+  
   

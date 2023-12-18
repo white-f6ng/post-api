@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map,catchError,of, Observable } from 'rxjs';
+import { Requestpayload } from './request/requestpayload';
 
 
 
@@ -16,7 +17,7 @@ export class SampserviceService {
 
 
 
-showproducts(requestPayload:any){
+showproducts(requestPayload:Requestpayload){
   // console.log(this.apiUrl)
   const headers = new HttpHeaders({ 'Content-Type': 'application/json', });
   

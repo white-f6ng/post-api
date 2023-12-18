@@ -1,16 +1,8 @@
 import { Component } from '@angular/core';
 import { SampserviceService } from '../sampservice.service';
+import { Requestpayload,defaultpayload } from '../request/requestpayload';
+import { ApiResponse,Product } from '../api-response';
 
-interface Product {
-  mst_product_name: string;
-  mst_product_code: string;
-  isChecked: boolean;
- 
-}
-interface CheckedItem {
-  mst_cat_name: string;
-  product_details: Product[];
-}
 
 
 
@@ -25,8 +17,8 @@ export class SampleComponent {
   branch_id?:number;
   repeatCombo: boolean = false;
 
-  requestPayload: any;
-  responseData: any;  
+  requestPayload: Requestpayload={...defaultpayload};
+  responseData: ApiResponse|any;  
   buttonClicked:boolean=false;
   showCheckedItemsSection: boolean = false;
   checkedItems: any[] = [];
@@ -34,7 +26,7 @@ export class SampleComponent {
   constructor(private sampservice: SampserviceService) {}
   
 
-  sendRequest() {
+  sendRequest() { 
     
     this.buttonClicked=true;
     console.log('send request')
@@ -59,18 +51,18 @@ export class SampleComponent {
       this.requestPayload.branch_id &&
       this.repeatCombo
     ){      this.sampservice.showproducts(this.requestPayload).subscribe(
-        (response: any) => {
+        (response) => {
           this.responseData = response; 
           console.log(this.responseData)
         },
-        (error: any) => console.error("error is", error)
+        (error) => console.error("error is", error)
       );
     } else {
       console.log("conditions not met")
     }
-    this.mst_product_id = undefined;
-    this.branch_id = undefined;
-    this.repeatCombo = false;
+    // this.mst_product_id = undefined;
+    // this.branch_id = undefined;
+    // this.repeatCombo = false;
   }
   showCheckedItems() {
     
